@@ -92,6 +92,7 @@
                 formClass = i["Form Class in 2022"]
                 ResponseId = i["Response ID"]
                 folderPath = `Academic Awardee/RefNo ${ResponseId}`
+                console.log(folderPath)
                 getFolder(folderPath, ResponseId, name, formClass)
                     .then(res => {
                         [text, ResponseId, name, formClass] = res
@@ -102,7 +103,7 @@
                         const htmlDoc = parser.parseFromString(text, 'text/html');
                         const files = [...htmlDoc.getElementsByTagName('a')].map(a => a.textContent)
                         const file = files.at(4);
-                        console.log(file);
+                        console.log(files);
                         if(file.toLowerCase().includes('.png')){
                             index = file.toLowerCase().indexOf('.png')+4;
                         }

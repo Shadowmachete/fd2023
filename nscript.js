@@ -136,6 +136,23 @@ const Add=()=>{
         data = await response.json();
         return data
     }
+    const getPath = async (directory, namer, formClass, ResponseId) => {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('GET',directory,false);
+        xmlHttp.send(null);
+        var ret = xmlHttp.responseText;
+        var fileList = ret.split('\n')
+        for (i = 0; i < fileList.length-1; i++){
+            var fileInfo = fileList[i].split(' ');
+            var nextFileInfo = fileList[i+1].split(' ');
+            if (fileInfo.length > 2){
+                if ((fileInfo[1].includes('.jpg')||fileInfo[1].includes('.JPG')||fileInfo[1].includes('.jpeg')||fileInfo[1].includes('.png')||fileInfo[1].includes('.PNG')||fileInfo[1].includes('.pdf'))&&(nextFileInfo[1].includes('.jpg')||nextFileInfo[1].includes('.JPG')||nextFileInfo[1].includes('.jpeg')||nextFileInfo[1].includes('.png')||nextFileInfo[1].includes('.PNG')||nextFileInfo[1].includes('.pdf'))){
+                    path = fileInfo[1].substring(fileInfo[1].indexOf('href="/')+7,fileInfo[1].length-1);
+                }
+            }
+        }
+        return [path, namer, formClass, ResponseId]
+    }
     getData()
         .then(data => {
             ol = document.querySelector(".grid");
@@ -144,32 +161,22 @@ const Add=()=>{
                 formClass = i["Form Class in 2022"]
                 ResponseId = i["Response ID"]
                 var directory = `Academic Awardee/RefNo ${ResponseId}`;
-                var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open('GET',directory,false);
-                xmlHttp.send(null);
-                var ret = xmlHttp.responseText;
-                var fileList = ret.split('\n')
-                for (i = 0; i < fileList.length-1; i++){
-                    var fileInfo = fileList[i].split(' ');
-                    var nextFileInfo = fileList[i+1].split(' ');
-                    if (fileInfo.length > 2){
-                        if ((fileInfo[1].includes('.jpg')||fileInfo[1].includes('.JPG')||fileInfo[1].includes('.jpeg')||fileInfo[1].includes('.png')||fileInfo[1].includes('.PNG')||fileInfo[1].includes('.pdf'))&&(nextFileInfo[1].includes('.jpg')||nextFileInfo[1].includes('.JPG')||nextFileInfo[1].includes('.jpeg')||nextFileInfo[1].includes('.png')||nextFileInfo[1].includes('.PNG')||nextFileInfo[1].includes('.pdf'))){
-                            path = fileInfo[1].substring(fileInfo[1].indexOf('href="/')+7,fileInfo[1].length-1);
-                        }
-                    }
-                }
-                li = document.createElement("div");
-                li.classList.add("obj");
-                img = document.createElement("img");
-                img.src = path;
-                p = document.createElement("p");
-                br = document.createElement("br");
-                p.append(document.createTextNode(namer.toUpperCase()));
-                p.append(br);
-                p.append(document.createTextNode(`Class ${formClass.toUpperCase()} in 2022`));
-                li.append(img);
-                li.append(p);
-                ol.append(li);
+                getPath(directory, namer, formClass, ResponseId)
+                    .then(data => {
+                        [path, namer, formClass, ResponseId] = data
+                        li = document.createElement("div");
+                        li.classList.add("obj");
+                        img = document.createElement("img");
+                        img.src = path;
+                        p = document.createElement("p");
+                        br = document.createElement("br");
+                        p.append(document.createTextNode(namer.toUpperCase()));
+                        p.append(br);
+                        p.append(document.createTextNode(`Class ${formClass.toUpperCase()} in 2022`));
+                        li.append(img);
+                        li.append(p);
+                        ol.append(li);
+                    })
                 }
             })
 }

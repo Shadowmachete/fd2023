@@ -21,7 +21,12 @@ const xclick = () =>{
 }
 
 const page = (p) => {
-    window.location.href = `${p}.html`
+    if (pagedata[p] == undefined){
+        page('Error 404')
+    }
+    else {
+        window.location.href = `${p}.html`
+    }
     searchbaractive();
     closeside();
     pictures = document.querySelectorAll(".obj");
@@ -129,4 +134,11 @@ const searchbaractive=()=>{
         });
     }
 } 
+window.onscroll = function() {myFunction()};
 
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("progress-bar").style.width = scrolled + "%";
+}

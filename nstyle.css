@@ -12,37 +12,40 @@ h1{
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    border-radius: 5px;
 }
-
 .portrait{
     max-width: 150px;
     height: auto;
     text-align: center;
     display: block;
     margin: 0 auto;
+    padding: 0;
 }
+#main {
+    background-color: #f2f2f2;
+  }
+  
+.leftct {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+.leftct img {
+    background-color: #fff;
+  }
 
 .leftct{
     text-align: center;
     margin-top: 5%;
-    background-color: #E8D5C4;
-    margin-bottom: 30%;
-    margin-right: 12%;
-    margin-left: 12%;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 5px;
 }
 .rightctcnt{
     flex: 9;
     padding: 20px;
     background-color: #f8f8f8;
     margin-left: 20px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
 
 }
 .rightctcnt p {

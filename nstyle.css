@@ -6,9 +6,9 @@ h1{
     background-color: #ccdde7;
     display: flex;
     justify-content: center;
-    max-width: 10%; /* limit the maximum width */
+    width: fit-content;    
     margin: 0 auto; /* center horizontally */
-    padding: 20px;
+    padding: 25px;
     border-radius: 25px;
 }
 .portrait{
@@ -25,21 +25,21 @@ h1{
   
 .leftct {
     background-color: #ccdde7;
-    padding: 20px;
+    padding: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
     height: fit-content;
-    padding-bottom: 40px;
-    max-width: 20%;
     border-radius: 25px;
+    max-width: 20%;
+    text-align: center;
+    margin-top: 20px;
   }
   
 .leftct img {
     background-color: #fff;
   }
 
-.leftct{
-    text-align: center;
-    margin-top: 20px;
-}
+
 .rightctcnt{
     flex: 9;
     padding: 20px;
@@ -377,6 +377,9 @@ div.center-cropped {
     /* Style the Welcome section for smaller screens */
     body{
         flex-direction: column;
+    }
+    .leftct{
+        width: fit-content;
     }
 }
 

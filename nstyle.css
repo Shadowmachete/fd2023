@@ -1,0 +1,317 @@
+body{
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+#navbar, #mnavbar{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 70px;
+    background: rgba(0,0,0,0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+#mnavbar{
+    z-index: 15;
+}
+#heading #navbar img, #heading #mnavbar img{
+    width: 50px;
+    padding: 10px;
+    float: left;
+    height: 50px;
+}
+#heading #navbar img:hover, #heading #mnavbar img:hover{
+    cursor: pointer;
+}
+/*
+#navbar div{
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    float: right;
+    margin: auto;
+    position: relative;
+    padding: 10px;
+    margin-right: 2%;
+}
+#navbar a{
+    transition-duration: 0.1s;
+}
+#navbar div:hover a{
+    border-bottom: white 3px solid;
+}
+#navbar a:hover{
+    cursor: pointer;
+    border-bottom: white 3px solid;
+}
+#navbar div .dropdown{
+    text-align: left;
+    position: absolute;
+    display: none;
+    color: black;
+    background: white;
+    width: auto;
+    top: 50px;
+    font-size: 15px;
+    z-index: 9;
+    height: auto;
+}
+#navbar div:hover .dropdown, .dropdown:hover{
+    display: block;
+}*/
+#msidebar div div.dropdown{
+    padding-bottom: 0px;
+}
+.dropdown a{
+    display: block;
+    margin: 15px;
+    z-index: 10;
+    position: relative;
+}
+/*
+#navbar div .dropdown a:hover{
+    border-bottom: none;
+}
+#navbar div:hover .dropdown a{
+    border-bottom: none;
+}*/
+
+#heading{
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 400px;
+}
+#heading img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+#title{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+    font-size: 3em;
+    text-shadow: 1px 1px black;
+}
+#mnavbar a{
+    float: right;
+    font-size: 25px;
+    color: white;
+    padding: 10px;
+}
+.container:hover{
+    cursor: pointer;
+}
+#msidebar{
+    width: 0;
+    background: white;
+    text-align: left;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+#msidebar{
+    overflow-y: scroll;
+}
+#msidebar *{
+    font-weight: bold;
+    font-size: 20px;
+}
+#msidebar *:hover{
+    cursor: pointer;
+}
+#msidebar .dropdown{
+    display: none;
+}
+#msidebar div{
+    padding: 15px;
+}
+/*Main*/
+#main{
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    position: relative; /*in case need use*/
+}
+#main iframe{
+    display: block;
+}
+/*Pages*/
+.grid{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 350px));;
+    align-items: initial;
+    justify-items: center;
+    grid-template-rows:max-content;
+   /* display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;*/
+}
+.obj:hover{
+    cursor: pointer;
+}
+.obj{
+    width: 300px;
+    height: 400px;
+    /*flex: 25%;
+    width: 300px;
+    padding: 0 4px;*/
+    font-size: 15px;
+    text-align: center;
+}
+.obj p{
+    margin: 10px 1px;
+}
+.obj img{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+img.squish{
+    object-fit: fill;
+}
+.obj div{
+    width: 100%;
+    text-align: center;
+    height: 0px;
+}
+.hide {
+    display: none;
+}
+.awrpsb{
+    position: relative;
+    margin-bottom: 15px;
+    height: 30px;
+}
+.searchbar{
+    background: rgba(0,0,0,0);
+    width: 150px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 17.5px;
+    position: absolute;
+    right: 20px;
+    top: 2.5px;
+    border: 1.2px solid #1e1e1e;
+    outline-width: 0;
+}
+#closebtn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+#closebtn:hover{
+    cursor: pointer;
+}
+div.center-cropped {
+    width: 85px;
+    height: 85px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 85px auto;
+    display: inline-block;
+  }
+.center-cropped:hover{
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
+
+.right{
+    text-align: right;
+}
+.text{
+    text-align: justify;
+}
+.portrait{
+    width: 80%;
+    display: block;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+.leftct{
+    flex: 25%;
+}
+.leftct p{
+    padding-left: 5px;
+    text-align: left;
+}
+.rightct{
+    flex: 75%;
+}
+.contentbox{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+    .leftct, .rightct{
+        flex: 100%;
+    }
+    .portrait{
+        margin-left: 10%;
+    }
+    .leftct p{
+        padding-left: 0px;
+        text-align: center;
+    }
+  }
+/*Hamburger*/
+.container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+    background-color: black;
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-5px, -5px);
+    background-color: black;
+  }
+  .opened{
+      position: fixed;
+      top: 10px;
+      right: 10px;
+  }
+/*Scrollbar*/
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb{
+    background: #555;
+}

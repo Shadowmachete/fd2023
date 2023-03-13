@@ -3,15 +3,13 @@ body{
     font-family: 'Open Sans', Arial, sans-serif;
 }
 h1{
-    background-color: #FFF1DC;
+    background-color: #ccdde7;
     display: flex;
     justify-content: center;
     max-width: 10%; /* limit the maximum width */
     margin: 0 auto; /* center horizontally */
     padding: 20px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
+    border-radius: 25px;
 }
 .portrait{
     max-width: 150px;
@@ -26,8 +24,12 @@ h1{
   }
   
 .leftct {
-    background-color: #fff;
+    background-color: #ccdde7;
     padding: 20px;
+    height: fit-content;
+    padding-bottom: 40px;
+    max-width: 20%;
+    border-radius: 25px;
   }
   
 .leftct img {
@@ -46,6 +48,7 @@ h1{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    border-radius: 25px;
 
 }
 .rightctcnt p {

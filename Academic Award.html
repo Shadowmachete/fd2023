@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width">
   </head>
   <body cz-shortcut-listen="true">
-    <div id="progress-bar"></div>
     <div id="heading">
         <div id="mnavbar">
             <a>
@@ -59,7 +58,7 @@
                 <a class="option" id='Top in Subject'>Top in Subject</a>
                 <a class="option" id='Bilingual Award'>Bilingual Award</a>
                 <a class="option" id='Trilingual Award'>Trilingual Award</a>
-              </div>
+              </div> 
           </div>
     </div>
     <div id="main">
@@ -73,63 +72,7 @@
     <script src="nscript.js"></script>
     <script>
     searchbaractive();
-    const getFolder = async (path, id, name, formClass) => {
-        response = await fetch(path)
-        text = await response.text()
-        return [text, id, name, formClass]
-    }
-    const getData = async () => {
-        response = await fetch('Academic Awardees.json');
-        data = await response.json();
-        return data
-    }
-    getData()
-        .then(data => {
-            ol = document.querySelector(".grid");
-            console.log(data);
-            for (i of data){
-                name = i["Full name (According to ISP)"]
-                formClass = i["Form Class in 2022"]
-                ResponseId = i["Response ID"]
-                folderPath = `Academic Awardee/RefNo ${ResponseId}`
-                console.log(folderPath)
-                getFolder(folderPath, ResponseId, name, formClass)
-                    .then(res => {
-                        [text, ResponseId, name, formClass] = res
-                        li = document.createElement("div");
-                        li.classList.add("obj");
-                        img = document.createElement("img");
-                        const parser = new DOMParser();
-                        const htmlDoc = parser.parseFromString(text, 'text/html');
-                        const files = [...htmlDoc.getElementsByTagName('a')].map(a => a.textContent)
-                        const file = files.at(4);
-                        console.log(files);
-                        if(file.toLowerCase().includes('.png')){
-                            index = file.toLowerCase().indexOf('.png')+4;
-                        }
-                        else if(file.includes('.jpeg')){
-                            index = file.indexOf('.jpeg')+5;
-                        }
-                        else {
-                            index = file.toLowerCase().indexOf('.jpg'||'.JPG')+4;
-                        }
-                        trimmedFile = file.substring(0,index);
-                        if(trimmedFile == "Que"){
-                            console.log(file)
-                        }
-                        console.log(trimmedFile);
-                        img.src = `Academic Awardee/RefNo ${ResponseId}` + "/" + trimmedFile;
-                        p = document.createElement("p");
-                        br = document.createElement("br");
-                        p.append(document.createTextNode(name.toUpperCase()));
-                        p.append(br);
-                        p.append(document.createTextNode(`Class ${formClass.toUpperCase()} in 2022`));
-                        li.append(img);
-                        li.append(p);
-                        ol.append(li);
-                })
-            }
-        })
+    Add()
   </script>
 </body>
 </html>

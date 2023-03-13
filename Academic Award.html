@@ -89,7 +89,7 @@
                 name = i["Full name (According to ISP)"]
                 formClass = i["Form Class in 2022"]
                 ResponseId = i["Response ID"]
-                folderPath = `Academic Awardees/RefNo ${ResponseId}`
+                folderPath = `Academic Awardee/RefNo ${ResponseId}`
                 getFolder(folderPath, ResponseId, name, formClass)
                     .then(res => {
                         [text, ResponseId, name, formClass] = res

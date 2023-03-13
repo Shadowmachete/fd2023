@@ -132,11 +132,26 @@ h1{
     padding-bottom: 0px;
 }
 .dropdown a{
-    display: block;
-    margin: 15px;
-    z-index: 10;
-    position: relative;
+    z-index: 1;
+    padding: 10px;
+    
 }
+.dropdown{
+    transition: all 0.2s ease-in-out;
+}
+.option {
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+  }
+.option:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+  
+
 /*
 #navbar div .dropdown a:hover{
     border-bottom: none;

@@ -85,6 +85,7 @@
     getData()
         .then(data => {
             ol = document.querySelector(".grid");
+            console.log(data);
             for (i of data){
                 name = i["Full name (According to ISP)"]
                 formClass = i["Form Class in 2022"]
@@ -100,6 +101,7 @@
                         const htmlDoc = parser.parseFromString(text, 'text/html');
                         const files = [...htmlDoc.getElementsByTagName('a')].map(a => a.textContent)
                         const file = files.at(4);
+                        console.log(file);
                         if(file.toLowerCase().includes('.png')){
                             index = file.toLowerCase().indexOf('.png')+4;
                         }
@@ -113,6 +115,7 @@
                         if(trimmedFile == "Que"){
                             console.log(file)
                         }
+                        console.log(trimmedFile);
                         img.src = `Academic Awardee/RefNo ${ResponseId}` + "/" + trimmedFile;
                         p = document.createElement("p");
                         br = document.createElement("br");

@@ -251,6 +251,7 @@ h1{
     display: inline-block;
     width: 300px;
     height: 300px;
+    object-fit: default;
 }
 img.squish{
     object-fit: fill;
@@ -374,15 +375,9 @@ div.center-cropped {
 
 @media only screen and (max-width: 600px) {
     /* Style the Welcome section for smaller screens */
-    .content__container {
-      text-align: center;
+    body{
+        flex-direction: column;
     }
-    .content__container__list {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    /* Add padding to the heading to make space for the navigation menu */
-    #heading {
-      padding-top: 70px;
-    }
-  }
+}
+
+  
